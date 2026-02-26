@@ -633,29 +633,6 @@ ______________________________________________________ */
     display: none;
   }
 }
-/* ===============================
-   THEME TOGGLE (DEFAULT - DESKTOP)
-================================ */
-/* .theme-toggle {
-  margin-left: 20px;
-  padding: 10px 16px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.theme-toggle:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-} */
-
-/* ===============================
-   TABLET (≤ 768px)
-================================ */
 @media (max-width: 768px) {
   .theme-toggle {
     margin-left: 12px;
@@ -758,4 +735,5 @@ ______________________________________________________ */
     gap: 25px; /* very small screens */
   }
 }
+
 
