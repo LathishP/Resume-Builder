@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Preview</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="resume">
+
+  <div class="resume-header">
+    <h1>{{ data.name }}</h1>
+    <p>{{ data.email }} | {{ data.phone }} | {{ data.address }}</p>
+  </div>
+
+  <div class="resume-section">
+    <h3>Career Objective</h3>
+    <p>{{ data.objective }}</p>
+  </div>
+
+  <div class="resume-section">
+    <h3>Education</h3>
+    <p>{{ data.masters }}</p>
+    <p>{{ data.degree }}</p>
+    <p>{{ data.inter }}</p>
+  </div>
+
+  <div class="resume-section">
+    <h3>Skills</h3>
+    <p>{{ data.skills }}</p>
+  </div>
+
+  <div class="resume-section">
+    <h3>Internships & Certifications</h3>
+    <p>{{ data.internships }}</p>
+  </div>
+
+  <div class="resume-section">
+    <h3>Projects</h3>
+    <p>{{ data.Projects }}</p>
+  </div>
+
+  <button onclick="window.print()">Download PDF</button>
+
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+
+  <!-- Flask static linking -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">ResumeBuilder</div>
+
+  <nav>
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="navigateTo('components')">Components</a>
+    <a href="#" onclick="navigateTo('about')">About</a>
+    <a href="#" onclick="navigateTo('contact')">Contact</a>
+    <a href="#" onclick="showBuilder()">Build Resume</a>
+  </nav>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+</header>
+
+<section id="homePage">
+
+  <section class="hero">
+    <h1>Create a Job-Winning Resume</h1>
+    <p>Build professional, ATS-friendly resumes and download them instantly as free PDFs</p>
+    <br>
+    <button class="hero-btn" onclick="showBuilder()">Build My Resume</button>
+    <span class="floating-shape shape1"></span>
+    <span class="floating-shape shape2"></span>
+  </section>
+
+  <section class="features">
+    <div class="feature"><b>🧩 Step-by-Step Builder</b> <br> <p>Create your resume easily with a guided, section-by-section designed for beginners and professionals.</p></div>
+    <div class="feature"><b>👀 Instant Preview</b><br><p>View your resume in real time as you enter details and see exactly how it will look before downloading.</p></div>
+    <div class="feature"><b>📄 Free PDF Download</b><br><p>Download your professionally formatted, ATS-friendly resume instantly as a high-quality PDF at no cost</p></div>
+  </section>
+
+  <section class="components" id="components">
+    <h2>Resume Components</h2>
+    <div class="component-list">
+      <div>👤 Personal Details</div>
+      <div>🎯 Career Objective</div>
+      <div>🎓 Education</div>
+      <div>🛠 Skills</div>
+      <div>🏅 Internships & Certifications</div>
+      <div>🌐 Projects</div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>
+      This Resume Builder is designed to help users quickly create a professional resume using a carefully crafted single template. Instead of overwhelming users with multiple designs, we focus on one clean, modern, and recruiter-friendly format that works for most job applications.
+
+Simple input fields, structured sections, and automatic formatting make resume creation fast and stress-free.
+    </p>
+
+    <div class="about-cards">
+      <div>🚀 Easy to Use</div>
+      <div>🎯 Career Focused</div>
+      <div>💼 Professional Design</div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (demo)')">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+</section>
+
+<section id="builderPage" class="hidden">
+  <section class="builder">
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+
+    <form method="POST" action="/preview">
+      <div class="step active">
+        <h2>👤 Personal Details</h2>
+        <input name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input name="phone" placeholder="Phone Number" required>
+        <input name="address" placeholder="Address">
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+
+      <div class="step">
+        <h2>🎯 Career Objective</h2>
+        <textarea name="objective" required></textarea>
+        <div class="btn-group">
+          <button type="button" class="secondary" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>🎓 Education</h2>
+        <input name="masters" placeholder="Masters (if any)">
+        <input name="degree" placeholder="Degree">
+        <input name="inter" placeholder="Intermediate">
+        <div class="btn-group">
+          <button type="button" class="secondary" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <h2>🛠 Skills & Experience</h2>
+        <textarea name="skills" placeholder="Skills(comma seperated)"required></textarea>
+        <textarea name="internships" placeholder="Internships and Certifications"></textarea>
+        <input name="Projects" placeholder="Projects">
+        <div class="btn-group">
+          <button type="button" class="secondary" onclick="prevStep()">Back</button>
+          <button type="submit">Preview Resume</button>
+        </div>
+      </div>
+    </form>
+  </section>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Resume Builder | Python Flask Project</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
